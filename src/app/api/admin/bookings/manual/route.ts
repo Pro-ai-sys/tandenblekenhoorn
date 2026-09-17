@@ -13,7 +13,8 @@ import { supabaseAdmin } from "@/lib/supabase/admin";
  */
 export async function POST(request: NextRequest) {
   const auth = await requireAdmin();
-  if (!auth.ok) return NextResponse.json({ error: auth.message }, { status: auth.status });
+  if (!auth.ok)
+    return NextResponse.json({ error: auth.message }, { status: auth.status });
 
   const json = await request.json().catch(() => null);
   const parsed = manualBookingSchema.safeParse(json);
@@ -27,9 +28,14 @@ export async function POST(request: NextRequest) {
   const { treatmentType, startsAt, name, email, phone, notes } = parsed.data;
   const startDate = new Date(startsAt);
   if (Number.isNaN(startDate.getTime())) {
-    return NextResponse.json({ error: "Ongeldige datum/tijd." }, { status: 400 });
+    return NextResponse.json(
+      { error: "Ongeldige datum/tijd." },
+      { status: 400 }
+    );
   }
-  const endsAt = new Date(startDate.getTime() + TREATMENTS[treatmentType].totalMinutes * 60_000);
+  const endsAt = new Date(
+    startDate.getTime() + TREATMENTS[treatmentType].totalMinutes * 60_000
+  );
 
   const supabase = supabaseAdmin();
 
@@ -54,7 +60,7 @@ export async function POST(request: NextRequest) {
       treatment_type: treatmentType,
       starts_at: startDate.toISOString(),
       ends_at: endsAt.toISOString(),
-      status: "bevestigd",
+      status: "wacht_op_betaling",
       source: "handmatig",
       notes: notes || null,
     })
@@ -63,10 +69,16 @@ export async function POST(request: NextRequest) {
 
   if (error) {
     if (error.code === "23P01") {
-      return NextResponse.json({ error: "Dit tijdslot overlapt met een bestaande afspraak." }, { status: 409 });
+      return NextResponse.json(
+        { error: "Dit tijdslot overlapt met een bestaande afspraak." },
+        { status: 409 }
+      );
     }
     console.error("manual booking insert failed", error);
-    return NextResponse.json({ error: "Opslaan is niet gelukt." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Opslaan is niet gelukt." },
+      { status: 500 }
+    );
   }
 
   return NextResponse.json({ id: booking.id }, { status: 201 });

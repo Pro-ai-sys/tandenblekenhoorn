@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Hero({
   eyebrow,
@@ -17,8 +18,12 @@ export function Hero({
     <section className="relative overflow-hidden bg-gradient-to-b from-cream-100 to-cream-50">
       <div className="container-page grid gap-12 py-20 md:grid-cols-2 md:items-center md:py-28">
         <div className="animate-fade-up">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold-600">{eyebrow}</p>
-          <h1 className="mt-4 font-serif text-4xl leading-tight text-ink-900 md:text-5xl">{title}</h1>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold-600">
+            {eyebrow}
+          </p>
+          <h1 className="mt-4 font-serif text-4xl leading-tight text-ink-900 md:text-5xl">
+            {title}
+          </h1>
           <p className="mt-6 max-w-xl text-lg text-ink-700">{subtitle}</p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
@@ -35,11 +40,14 @@ export function Hero({
             </Link>
           </div>
         </div>
-        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-gold-100 shadow-xl md:aspect-square">
-          {/* Vervang door de bestaande, originele hero-foto van de salon (zie public/images/hero.jpg). */}
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-gold-200 via-gold-100 to-cream-100 text-center text-sm text-gold-700">
-            <span className="px-8">Hero-foto salon / behandeling</span>
-          </div>
+        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl shadow-xl md:aspect-square">
+          <Image
+            src="/images/tandenblekenhoorn.jpg"
+            alt="Behandelruimte Golden Smile in Hoorn"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
       </div>
     </section>

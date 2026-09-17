@@ -7,7 +7,9 @@ type Slot = { time: string; startsAt: string };
 
 function todayDateStr(): string {
   const now = new Date();
-  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(now);
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Amsterdam",
+  }).format(now);
 }
 
 function addDays(dateStr: string, days: number): string {
@@ -49,7 +51,10 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
         const data = await res.json();
         if (cancelled) return;
         if (!res.ok) {
-          setError(data.error ?? "Kon beschikbare tijden niet ophalen. Probeer het opnieuw.");
+          setError(
+            data.error ??
+              "Kon beschikbare tijden niet ophalen. Probeer het opnieuw."
+          );
           setSlots([]);
           return;
         }
@@ -94,13 +99,18 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
         setError(data.error ?? "Boeken is niet gelukt.");
         if (res.status === 409) {
           setSelectedSlot(null);
-          setSlots((prev) => prev?.filter((s) => s.startsAt !== selectedSlot.startsAt) ?? null);
+          setSlots(
+            (prev) =>
+              prev?.filter((s) => s.startsAt !== selectedSlot.startsAt) ?? null
+          );
         }
         return;
       }
       setConfirmedAt(selectedSlot.startsAt);
     } catch {
-      setError("Boeken is niet gelukt. Controleer je internetverbinding en probeer het opnieuw.");
+      setError(
+        "Boeken is niet gelukt. Controleer je internetverbinding en probeer het opnieuw."
+      );
     } finally {
       setSubmitting(false);
     }
@@ -118,11 +128,19 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
 
     return (
       <div className="rounded-2xl border border-gold-200 bg-white p-8 text-center">
-        <h2 className="font-serif text-2xl text-ink-900">Aanvraag ontvangen!</h2>
+        <h2 className="font-serif text-2xl text-ink-900">
+          Aanvraag ontvangen!
+        </h2>
         <p className="mt-3 text-ink-700">
-          Je tijdslot op <strong>{when}</strong> staat gereserveerd. Je ontvangt een bevestigingsmail,
-          en Paula neemt via WhatsApp contact op om de aanbetaling van €20,- via Tikkie te regelen.
-          Zodra deze betaald is, is je afspraak definitief.
+          Je tijdslot op <strong>{when}</strong> staat gereserveerd. Je ontvangt
+          een bevestigingsmail, en Paula neemt via WhatsApp contact op om de
+          aanbetaling van €20,- via Tikkie te regelen. Zodra deze betaald is, is
+          je afspraak definitief.
+        </p>
+        <p className="mt-3 text-ink-700">
+          Geef ook je kenteken door via WhatsApp — dan zetten we deze vast in de
+          parkeer-app, zodat je gratis en zonder gedoe kunt parkeren tijdens je
+          behandeling.
         </p>
       </div>
     );
@@ -131,7 +149,9 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-10">
       <div>
-        <h2 className="font-serif text-xl text-ink-900">1. Kies je behandeling</h2>
+        <h2 className="font-serif text-xl text-ink-900">
+          1. Kies je behandeling
+        </h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
           {Object.entries(TREATMENTS).map(([key, t]) => (
             <button
@@ -146,7 +166,9 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
             >
               <p className="font-semibold text-ink-900">{t.label}</p>
               <p className="text-sm text-ink-500">{t.description}</p>
-              <p className="mt-1 text-xs text-ink-500">±{t.realMinutes} min</p>
+              <p className="mt-1 text-xs text-ink-500">
+                ±{t.realMinutes} min · €{t.price},-
+              </p>
             </button>
           ))}
         </div>
@@ -155,8 +177,8 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
       <div>
         <h2 className="font-serif text-xl text-ink-900">2. Kies een datum</h2>
         <p className="mt-1 text-sm text-ink-500">
-          Online boekbaar op donderdag (hele dag) en maandag t/m donderdag in de avond. Voor overige
-          tijden: neem telefonisch contact op.
+          Online boekbaar op donderdag (hele dag) en maandag t/m donderdag in de
+          avond. Voor overige tijden: neem telefonisch contact op.
         </p>
         <input
           type="date"
@@ -171,14 +193,16 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
       <div>
         <h2 className="font-serif text-xl text-ink-900">3. Kies een tijd</h2>
         <div className="mt-4">
-          {loadingSlots && <p className="text-sm text-ink-500">Beschikbare tijden laden…</p>}
+          {loadingSlots && (
+            <p className="text-sm text-ink-500">Beschikbare tijden laden…</p>
+          )}
           {!loadingSlots && error && (
             <p className="text-sm text-red-600">{error}</p>
           )}
           {!loadingSlots && !error && slots && slots.length === 0 && (
             <p className="text-sm text-ink-500">
-              Geen online beschikbare tijden op deze dag. Kies een andere datum, of neem telefonisch
-              contact op voor overige tijden.
+              Geen online beschikbare tijden op deze dag. Kies een andere datum,
+              of neem telefonisch contact op voor overige tijden.
             </p>
           )}
           {!loadingSlots && !error && slots && slots.length > 0 && (
@@ -243,7 +267,8 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
               onChange={(e) => setMarketingConsent(e.target.checked)}
               className="mt-0.5"
             />
-            Ik ontvang graag af en toe een herinnering of aanbieding per e-mail (niet verplicht).
+            Ik ontvang graag af en toe een herinnering of aanbieding per e-mail
+            (niet verplicht).
           </label>
 
           {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
@@ -256,8 +281,10 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
             {submitting ? "Bezig met boeken…" : "Bevestig aanvraag"}
           </button>
           <p className="mt-3 text-xs text-ink-500">
-            Na het versturen ontvang je een bevestigingsmail. Paula regelt de aanbetaling van €20,-
-            via Tikkie persoonlijk via WhatsApp.
+            Na het versturen ontvang je een bevestigingsmail. Paula regelt de
+            aanbetaling van €20,- via Tikkie persoonlijk via WhatsApp. Geef ook
+            je kenteken door via WhatsApp voor gratis parkeren tijdens je
+            behandeling.
           </p>
         </div>
       )}

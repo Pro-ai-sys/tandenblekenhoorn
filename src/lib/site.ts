@@ -1,5 +1,5 @@
 export const site = {
-  name: "Golden Smile",
+  name: "Tandenblekenhoorn.nl - Golden Smile",
   tagline: "Tanden bleken in het centrum van Hoorn",
   domain: "tandenblekenhoorn.nl",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://tandenblekenhoorn.nl",
@@ -8,9 +8,9 @@ export const site = {
   phone: "0615060684",
   phoneDisplay: "06-15060684",
   address: {
-    streetAddress: "Centrum Hoorn",
+    streetAddress: "Gedempte Appelhaven 4-D",
     addressLocality: "Hoorn",
-    postalCode: "1621",
+    postalCode: "1621 BN",
     addressRegion: "Noord-Holland",
     addressCountry: "NL",
   },
@@ -26,11 +26,12 @@ export const site = {
     "Venhuizen",
   ],
   usps: [
+    "Direct resultaat na één behandeling",
+    "100% veilig, ook voor gevoelige tanden",
     "Geen peroxide-houdende bleekgels",
-    "Gratis parkeren voor de deur",
-    "Centraal gelegen in het centrum van Hoorn",
-    "Persoonlijke aanpak, geen wachtkamer vol vreemden",
-    "Direct online een tijdslot reserveren",
+    "Persoonlijke aandacht en kleurbepaling vooraf",
+    "Gratis parkeren — geef je kenteken door via WhatsApp",
+    "Airconditioning aanwezig",
   ],
 } as const;
 
@@ -94,5 +95,17 @@ export const wijken: Wijk[] = [
     naam: "Venhuizen",
     intro:
       "Vanuit Venhuizen ben je met de auto zo bij Golden Smile in het centrum van Hoorn, inclusief gratis parkeren voor de deur.",
+  },
+  {
+    slug: "tanden-bleken-west-friesland",
+    naam: "West-Friesland",
+    intro:
+      "Woon je ergens in West-Friesland en wil je je tanden laten bleken? Golden Smile in het centrum van Hoorn is voor de hele regio goed en snel bereikbaar, met gratis parkeren voor de deur.",
+  },
+  {
+    slug: "tanden-bleken-noord-holland",
+    naam: "Noord-Holland",
+    intro:
+      "Ook vanuit de rest van Noord-Holland ben je welkom bij Golden Smile, centraal gelegen in het centrum van Hoorn, met gratis parkeren voor de deur.",
   },
 ];

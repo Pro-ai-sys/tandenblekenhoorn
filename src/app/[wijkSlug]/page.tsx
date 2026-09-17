@@ -38,7 +38,11 @@ export async function generateMetadata({
   };
 }
 
-export default async function WijkPage({ params }: { params: Promise<{ wijkSlug: string }> }) {
+export default async function WijkPage({
+  params,
+}: {
+  params: Promise<{ wijkSlug: string }>;
+}) {
   const { wijkSlug } = await params;
   const wijk = findWijk(wijkSlug);
   if (!wijk) notFound();
@@ -46,7 +50,7 @@ export default async function WijkPage({ params }: { params: Promise<{ wijkSlug:
   return (
     <>
       <Hero
-        eyebrow={`Golden Smile voor ${wijk.naam}`}
+        eyebrow="Golden Smile — Tandenblekenhoorn.nl"
         title={`Tanden bleken in ${wijk.naam}, zonder peroxide`}
         subtitle={wijk.intro}
       />

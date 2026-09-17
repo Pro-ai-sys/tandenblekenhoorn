@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { SignOutButton } from "@/components/admin/SignOutButton";
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="min-h-screen bg-cream-100">
       <div className="border-b border-gold-200/60 bg-white">
@@ -15,6 +19,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </Link>
             <Link href="/admin/nieuw" className="hover:text-gold-600">
               Handmatige afspraak
+            </Link>
+            <Link href="/admin/klanten" className="hover:text-gold-600">
+              Klanten
             </Link>
           </nav>
           <SignOutButton />

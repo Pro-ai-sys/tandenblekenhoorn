@@ -8,7 +8,7 @@ export function LocalBusinessJsonLd() {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         name: site.name,
-        image: `${site.url}/images/hero.jpg`,
+        image: `${site.url}/images/tandenblekenhoorn.jpg`,
         url: site.url,
         telephone: site.phone,
         email: site.email,

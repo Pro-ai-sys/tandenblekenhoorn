@@ -9,28 +9,38 @@ export type TreatmentType = "single" | "double" | "triple";
 
 export const TREATMENTS: Record<
   TreatmentType,
-  { label: string; description: string; realMinutes: number; bufferMinutes: number; totalMinutes: number }
+  {
+    label: string;
+    description: string;
+    realMinutes: number;
+    bufferMinutes: number;
+    totalMinutes: number;
+    price: number;
+  }
 > = {
   single: {
     label: "Single",
-    description: "Eén tand bleken",
+    description: "Tot 4 tinten witter · kleurbepaling voor- en achteraf",
     realMinutes: 45,
     bufferMinutes: 15,
     totalMinutes: 60,
+    price: 69,
   },
   double: {
     label: "Double",
-    description: "Twee tanden bleken",
+    description: "Tot 7 tinten witter · kleurbepaling voor- en achteraf",
     realMinutes: 60,
     bufferMinutes: 15,
     totalMinutes: 75,
+    price: 109,
   },
   triple: {
     label: "Triple",
-    description: "Volledig gebit bleken",
+    description: "Tot 10 tinten witter · speciale intensieve voorbehandeling",
     realMinutes: 75,
     bufferMinutes: 15,
     totalMinutes: 90,
+    price: 159,
   },
 };
 

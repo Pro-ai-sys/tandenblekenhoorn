@@ -35,11 +35,14 @@ type BookingSummary = {
 export async function sendBookingEmails(booking: BookingSummary) {
   const resend = resendClient();
   if (!resend) {
-    console.warn("RESEND_API_KEY ontbreekt — bevestigingsmails zijn overgeslagen.");
+    console.warn(
+      "RESEND_API_KEY ontbreekt — bevestigingsmails zijn overgeslagen."
+    );
     return;
   }
 
-  const from = process.env.EMAIL_FROM ?? `${site.name} <boekingen@${site.domain}>`;
+  const from =
+    process.env.EMAIL_FROM ?? `${site.name} <boekingen@${site.domain}>`;
   const adminTo = process.env.EMAIL_ADMIN_TO ?? site.email;
   const treatment = TREATMENTS[booking.treatmentType];
   const when = formatDateTime(booking.startsAt);
@@ -52,10 +55,13 @@ export async function sendBookingEmails(booking: BookingSummary) {
       `Beste ${booking.name},`,
       "",
       `We hebben je boekingsaanvraag ontvangen voor: ${treatment.label} (${treatment.description}).`,
+      `Prijs: €${treatment.price},-`,
       `Datum en tijd: ${when}.`,
       "",
       `Paula neemt via WhatsApp contact met je op om de aanbetaling van €20,- via Tikkie af te ronden.`,
       `Zodra de Tikkie betaald is, is je afspraak definitief bevestigd.`,
+      "",
+      `Geef ook je kenteken door via WhatsApp, dan zetten we deze vast in de parkeer-app zodat je gratis kunt parkeren tijdens je behandeling.`,
       "",
       `Tot snel bij ${site.name}!`,
       site.owner,
@@ -69,7 +75,7 @@ export async function sendBookingEmails(booking: BookingSummary) {
     text: [
       `Nieuwe online boekingsaanvraag:`,
       "",
-      `Behandeling: ${treatment.label} (${treatment.description})`,
+      `Behandeling: ${treatment.label} (${treatment.description}) — €${treatment.price},-`,
       `Datum en tijd: ${when}`,
       `Naam: ${booking.name}`,
       `E-mail: ${booking.email}`,
