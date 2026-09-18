@@ -52,102 +52,102 @@ export const wijken: Wijk[] = [
     slug: "tanden-bleken-hoorn",
     naam: "Hoorn",
     intro:
-      "Op zoek naar tanden bleken in Hoorn? Golden Smile zit centraal in het centrum van Hoorn, met gratis parkeren voor de deur.",
+      "Golden Smile zit midden in het centrum van Hoorn, aan de Gedempte Appelhaven. Loop of fiets er zo naartoe, en parkeer gratis voor de deur voor je bleekbehandeling.",
   },
   {
     slug: "tanden-bleken-kersenboogerd",
     naam: "Kersenboogerd",
     intro:
-      "Woon je in Kersenboogerd en wil je je tanden laten bleken? Golden Smile ligt op slechts een paar minuten rijden, midden in het centrum van Hoorn.",
+      "Vanuit de wijk Kersenboogerd fiets je in een paar minuten naar het centrum van Hoorn, waar Golden Smile je klaarstaat voor een stralende glimlach — met gratis parkeren voor wie liever met de auto komt.",
   },
   {
     slug: "tanden-bleken-grote-waal",
     naam: "Grote Waal",
     intro:
-      "Vanuit Grote Waal ben je zo bij Golden Smile in het centrum van Hoorn — dichtbij en met gratis parkeren voor de deur.",
+      "Grote Waal ligt praktisch om de hoek bij het centrum van Hoorn. Golden Smile is dan ook snel te bereiken, met gratis parkeren pal voor de deur.",
   },
   {
     slug: "tanden-bleken-risdam",
     naam: "Risdam",
     intro:
-      "Voor inwoners van Risdam is Golden Smile in het centrum van Hoorn eenvoudig te bereiken, met gratis parkeren vlak voor de deur.",
+      "Ook als je in Risdam woont, ben je binnen een paar minuten bij Golden Smile in het centrum van Hoorn. Gratis parkeren maakt een bezoek extra makkelijk.",
   },
   {
     slug: "tanden-bleken-blokker",
     naam: "Blokker",
     intro:
-      "Ook vanuit Blokker ben je binnen enkele minuten bij Golden Smile in het centrum van Hoorn voor een peroxidevrije bleekbehandeling.",
+      "Blokker grenst direct aan Hoorn, dus Golden Smile ligt praktisch naast de deur. Kom langs voor een peroxidevrije bleekbehandeling, met gratis parkeren voor de salon.",
   },
   {
     slug: "tanden-bleken-zwaag",
     naam: "Zwaag",
     intro:
-      "Kom vanuit Zwaag naar Golden Smile in het centrum van Hoorn voor tanden bleken zonder peroxide-houdende gels.",
+      "Vanuit Zwaag ben je zo het centrum van Hoorn in. Golden Smile werkt uitsluitend met bleekgels zonder peroxide, voor een veilige en pijnvrije behandeling.",
   },
   {
     slug: "tanden-bleken-wognum",
     naam: "Wognum",
     intro:
-      "Vanuit Wognum is Golden Smile in het centrum van Hoorn goed en snel bereikbaar, met gratis parkeren voor de deur.",
+      "Wognum ligt op een klein stukje rijden van Hoorn. Bij Golden Smile in het centrum kun je eenvoudig online een tijdslot boeken, met gratis parkeren voor de deur.",
   },
   {
     slug: "tanden-bleken-berkhout",
     naam: "Berkhout",
     intro:
-      "Woon je in Berkhout? Golden Smile in het centrum van Hoorn helpt je graag aan een witte, stralende glimlach.",
+      "Kom je uit Berkhout? Dan is Golden Smile in het centrum van Hoorn een fijn, dichtbij gelegen adres voor een witte, stralende glimlach.",
   },
   {
     slug: "tanden-bleken-venhuizen",
     naam: "Venhuizen",
     intro:
-      "Vanuit Venhuizen ben je met de auto zo bij Golden Smile in het centrum van Hoorn, inclusief gratis parkeren voor de deur.",
+      "Vanuit Venhuizen rijd je zo naar Golden Smile in het centrum van Hoorn. Gratis parkeren voor de deur maakt het bezoek extra eenvoudig.",
   },
   {
     slug: "tanden-bleken-west-friesland",
     naam: "West-Friesland",
     intro:
-      "Woon je ergens in West-Friesland en wil je je tanden laten bleken? Golden Smile in het centrum van Hoorn is voor de hele regio goed en snel bereikbaar, met gratis parkeren voor de deur.",
+      "Waar je ook woont in West-Friesland, Golden Smile in het centrum van Hoorn is voor de hele regio goed bereikbaar — met gratis parkeren en online een tijdslot boeken.",
   },
   {
     slug: "tanden-bleken-noord-holland",
     naam: "Noord-Holland",
     intro:
-      "Ook vanuit de rest van Noord-Holland ben je welkom bij Golden Smile, centraal gelegen in het centrum van Hoorn, met gratis parkeren voor de deur.",
+      "Kom je van iets verder uit Noord-Holland? Golden Smile in het centrum van Hoorn is de moeite van de rit waard: tanden bleken zonder peroxide, in een persoonlijke setting.",
   },
   {
     slug: "tanden-bleken-enkhuizen",
     naam: "Enkhuizen",
     intro:
-      "Woon je in Enkhuizen en wil je je tanden laten bleken? Golden Smile in het centrum van Hoorn is goed bereikbaar, met gratis parkeren voor de deur.",
+      "Enkhuizen ligt op zo'n twintig minuten rijden van Hoorn. Golden Smile in het centrum is voor Enkhuizers een geliefd adres voor een gratis, vrijblijvend advies over tanden bleken.",
   },
   {
     slug: "tanden-bleken-medemblik",
     naam: "Medemblik",
     intro:
-      "Vanuit Medemblik ben je zo bij Golden Smile in het centrum van Hoorn, voor een peroxidevrije bleekbehandeling met gratis parkeren voor de deur.",
+      "Vanuit Medemblik ben je met de auto zo bij Golden Smile in het centrum van Hoorn, voor een peroxidevrije bleekbehandeling met gratis parkeren voor de deur.",
   },
   {
     slug: "tanden-bleken-hoogkarspel",
     naam: "Hoogkarspel",
     intro:
-      "Woon je in Hoogkarspel? Golden Smile in het centrum van Hoorn helpt je graag aan een stralende, witte glimlach.",
+      "Woon je in Hoogkarspel? Dan hoef je niet ver te reizen: Golden Smile in het centrum van Hoorn helpt je graag aan een stralende, witte glimlach.",
   },
   {
     slug: "tanden-bleken-bovenkarspel",
     naam: "Bovenkarspel",
     intro:
-      "Vanuit Bovenkarspel ben je snel bij Golden Smile in het centrum van Hoorn, met gratis parkeren vlak voor de deur.",
+      "Vanuit Bovenkarspel is Golden Smile in het centrum van Hoorn zo bereikbaar, met gratis parkeren vlak voor de deur en online eenvoudig een tijdslot boeken.",
   },
   {
     slug: "tanden-bleken-andijk",
     naam: "Andijk",
     intro:
-      "Woon je in Andijk en wil je je tanden laten bleken zonder peroxide-houdende gels? Golden Smile in het centrum van Hoorn staat voor je klaar.",
+      "Kom je uit Andijk en wil je je tanden laten bleken zonder peroxide-houdende gels? Golden Smile in het centrum van Hoorn staat voor je klaar, met een gratis en vrijblijvend advies vooraf.",
   },
   {
     slug: "tanden-bleken-wervershoof",
     naam: "Wervershoof",
     intro:
-      "Vanuit Wervershoof ben je met de auto zo bij Golden Smile in het centrum van Hoorn, inclusief gratis parkeren voor de deur.",
+      "Vanuit Wervershoof ben je met de auto zo bij Golden Smile in het centrum van Hoorn. Gratis parkeren voor de deur maakt het bezoek extra makkelijk.",
   },
 ];
