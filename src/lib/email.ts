@@ -68,7 +68,7 @@ export async function sendBookingEmails(booking: BookingSummary) {
       `Paula neemt via WhatsApp contact met je op om de aanbetaling van €20,- via Tikkie af te ronden.`,
       `Zodra de Tikkie betaald is, is je afspraak definitief bevestigd.`,
       "",
-      `Geef ook je kenteken door via WhatsApp, dan zetten we deze vast in de parkeer-app zodat je gratis kunt parkeren tijdens je behandeling.`,
+      `Geef je kenteken pas vlak vóór je afspraak door via WhatsApp (niet nu al) — dan zetten we deze op tijd vast in de parkeer-app zodat je gratis kunt parkeren tijdens je behandeling.`,
       "",
       `Tot snel bij ${site.name}!`,
       site.owner,

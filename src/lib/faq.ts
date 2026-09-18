@@ -147,7 +147,7 @@ export const faqItems: { question: string; answer: string }[] = [
   {
     question: "Is er parkeergelegenheid?",
     answer:
-      "Ja, parkeren bij de salon in het centrum van Hoorn is gratis. Geef voorafgaand aan je behandeling wel je kenteken door via WhatsApp, zodat wij deze vast kunnen zetten in de parkeer-app.",
+      "Ja, parkeren bij de salon in het centrum van Hoorn is gratis. Geef je kenteken pas vlak vóór je afspraak door via WhatsApp (niet eerder), zodat wij deze op tijd vast kunnen zetten in de parkeer-app.",
   },
   {
     question: "Hoe werkt het boeken en de aanbetaling?",

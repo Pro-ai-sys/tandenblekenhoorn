@@ -256,9 +256,9 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
           </button>
           <p className="mt-3 text-xs text-ink-500">
             Na het versturen ontvang je een bevestigingsmail. Paula regelt de
-            aanbetaling van €20,- via Tikkie persoonlijk via WhatsApp. Geef ook
-            je kenteken door via WhatsApp voor gratis parkeren tijdens je
-            behandeling.
+            aanbetaling van €20,- via Tikkie persoonlijk via WhatsApp. Geef je
+            kenteken pas vlak vóór je afspraak door via WhatsApp voor gratis
+            parkeren.
           </p>
         </div>
       )}
