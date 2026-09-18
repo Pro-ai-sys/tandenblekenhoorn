@@ -35,11 +35,6 @@ export function Footer() {
                 Privacyverklaring
               </Link>
             </li>
-            <li>
-              <Link href="/admin/login" className="hover:text-gold-600">
-                Inloggen (Paula)
-              </Link>
-            </li>
           </ul>
         </div>
       </div>
