@@ -8,12 +8,20 @@ export const wijkImages: { src: string; alt: string }[] = [
     alt: "LED-lamp voor peroxidevrij tanden bleken bij Golden Smile",
   },
   {
-    src: "/images/led-lamp-detail-tandenbleken.jpg",
-    alt: "Detail van de LED-bleeklamp bij Golden Smile",
-  },
-  {
     src: "/images/tandenkleuren-waaier-tandenbleken.jpg",
     alt: "Tandenkleuren-waaier voor kleurbepaling bij Golden Smile",
+  },
+  {
+    src: "/images/golden-smile-tandpasta.jpg",
+    alt: "Golden Smile tandpasta voor onderhoud na het bleken",
+  },
+  {
+    src: "/images/golden-smile-tandpasta-verpakking.jpg",
+    alt: "Verpakking van de Golden Smile tandpasta",
+  },
+  {
+    src: "/images/golden-smile-sfeerfoto.jpg",
+    alt: "Sfeerbeeld bij Golden Smile in Hoorn",
   },
 ];
 
