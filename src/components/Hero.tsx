@@ -7,12 +7,16 @@ export function Hero({
   subtitle,
   ctaLabel = "Bekijk beschikbare tijden",
   ctaHref = "/boeken",
+  imageSrc = "/images/tandenblekenhoorn.jpg",
+  imageAlt = "Behandelruimte Golden Smile in Hoorn",
 }: {
   eyebrow: string;
   title: string;
   subtitle: string;
   ctaLabel?: string;
   ctaHref?: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-cream-100 to-cream-50">
@@ -42,8 +46,8 @@ export function Hero({
         </div>
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl shadow-xl md:aspect-square">
           <Image
-            src="/images/tandenblekenhoorn.jpg"
-            alt="Behandelruimte Golden Smile in Hoorn"
+            src={imageSrc}
+            alt={imageAlt}
             fill
             className="object-cover"
             priority

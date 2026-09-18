@@ -5,6 +5,7 @@ import { UspList } from "@/components/UspList";
 import { TreatmentGrid } from "@/components/TreatmentGrid";
 import { WijkLinks } from "@/components/WijkLinks";
 import { wijken } from "@/lib/site";
+import { getWijkImage } from "@/lib/wijkImages";
 
 /**
  * SEO (hoofdstuk 8.3): losse landingspagina's per wijk/plaats, bijv.
@@ -47,12 +48,26 @@ export default async function WijkPage({
   const wijk = findWijk(wijkSlug);
   if (!wijk) notFound();
 
+  const isHoorn = wijk.slug === "tanden-bleken-hoorn";
+
+  const overigeWijken = wijken.filter((w) => w.slug !== "tanden-bleken-hoorn");
+  const wijkIndex = overigeWijken.findIndex((w) => w.slug === wijk.slug);
+  const rotatingImage = getWijkImage(wijkIndex === -1 ? 0 : wijkIndex);
+
   return (
     <>
       <Hero
         eyebrow="Golden Smile — Tandenblekenhoorn.nl"
         title={`Tanden bleken in ${wijk.naam}`}
         subtitle={wijk.intro}
+        imageSrc={
+          isHoorn ? "/images/behandelruimte-hoorn.jpg" : rotatingImage.src
+        }
+        imageAlt={
+          isHoorn
+            ? "Behandelruimte Golden Smile in het centrum van Hoorn"
+            : rotatingImage.alt
+        }
       />
       <UspList />
       <TreatmentGrid />
