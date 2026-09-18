@@ -40,9 +40,10 @@ export const faqItems: { question: string; answer: string }[] = [
     answer: "Ja, met schriftelijke toestemming van een ouder.",
   },
   {
-    question: "Is het verstandig om eerst langs een tandarts te gaan?",
+    question:
+      "Kan ik ook tanden bleken bij de tandarts, en wat is het verschil met Golden Smile?",
     answer:
-      "Als je last hebt van tandsteen of plaque, kun je dit beter eerst bij je tandarts laten verwijderen voor een beter resultaat.",
+      "Tanden bleken bij de tandarts is zeker mogelijk, maar vaak duurder en met een wachttijd voor een afspraak. Bij onze kliniek in Hoorn kun je snel en eenvoudig online een tijdslot boeken, zonder tussenkomst van een tandarts nodig te hebben. Heb je last van tandsteen of plaque, dan is het wel verstandig om dit eerst bij je tandarts te laten verwijderen voor een beter resultaat.",
   },
   {
     question: "Wat is de beste manier om tanden te bleken?",
