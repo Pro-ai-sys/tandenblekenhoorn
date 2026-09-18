@@ -16,9 +16,32 @@ export default function AdminLoginPage() {
     setLoading(true);
     setError(null);
 
-    const { error } = await supabaseBrowser().auth.signInWithPassword({ email, password });
+    // Eerst checken of dit e-mailadres niet is geblokkeerd door te veel mislukte pogingen.
+    const checkRes = await fetch("/api/admin/login-attempts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, action: "check" }),
+    });
+
+    if (!checkRes.ok) {
+      const data = await checkRes.json().catch(() => ({}));
+      setError(data.error ?? "Te veel pogingen. Probeer het later opnieuw.");
+      setLoading(false);
+      return;
+    }
+
+    const { error } = await supabaseBrowser().auth.signInWithPassword({
+      email,
+      password,
+    });
 
     if (error) {
+      // Mislukte poging registreren voor de rate-limiter.
+      await fetch("/api/admin/login-attempts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, action: "record" }),
+      });
       setError("Inloggen mislukt. Controleer je e-mailadres en wachtwoord.");
       setLoading(false);
       return;
@@ -34,8 +57,12 @@ export default function AdminLoginPage() {
         onSubmit={handleSubmit}
         className="w-full max-w-sm rounded-2xl border border-gold-200/60 bg-white p-8 shadow-sm"
       >
-        <h1 className="font-serif text-2xl text-ink-900">Golden Smile — beheer</h1>
-        <p className="mt-1 text-sm text-ink-500">Log in om boekingen te beheren.</p>
+        <h1 className="font-serif text-2xl text-ink-900">
+          Golden Smile — beheer
+        </h1>
+        <p className="mt-1 text-sm text-ink-500">
+          Log in om boekingen te beheren.
+        </p>
 
         <label className="mt-6 flex flex-col gap-1.5 text-sm text-ink-700">
           E-mailadres

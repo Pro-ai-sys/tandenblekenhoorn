@@ -1,8 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { BOOKING_STATUS_LABELS, TREATMENTS, type BookingStatus } from "@/lib/booking";
+import {
+  BOOKING_STATUS_LABELS,
+  TREATMENTS,
+  type BookingStatus,
+} from "@/lib/booking";
 
 export type BookingRow = {
   id: string;
@@ -11,7 +16,7 @@ export type BookingRow = {
   status: BookingStatus;
   source: "online" | "handmatig";
   notes: string | null;
-  customer: { name: string; email: string; phone: string } | null;
+  customer: { id: string; name: string; email: string; phone: string } | null;
 };
 
 const STATUS_OPTIONS: BookingStatus[] = [
@@ -77,15 +82,22 @@ export function BookingsTable({ bookings }: { bookings: BookingRow[] }) {
           {bookings.map((b) => (
             <tr key={b.id} className="border-b border-gold-100 last:border-0">
               <td className="px-4 py-3">{formatWhen(b.starts_at)}</td>
-              <td className="px-4 py-3">{TREATMENTS[b.treatment_type].label}</td>
+              <td className="px-4 py-3">
+                {TREATMENTS[b.treatment_type].label}
+              </td>
               <td className="px-4 py-3">
                 {b.customer ? (
-                  <div>
-                    <p className="font-medium text-ink-900">{b.customer.name}</p>
+                  <Link
+                    href={`/admin/klanten/${b.customer.id}`}
+                    className="block hover:text-gold-600"
+                  >
+                    <p className="font-medium text-ink-900">
+                      {b.customer.name}
+                    </p>
                     <p className="text-xs text-ink-500">
                       {b.customer.email} · {b.customer.phone}
                     </p>
-                  </div>
+                  </Link>
                 ) : (
                   <span className="text-ink-500">—</span>
                 )}
@@ -95,7 +107,9 @@ export function BookingsTable({ bookings }: { bookings: BookingRow[] }) {
                 <select
                   value={b.status}
                   disabled={busyId === b.id}
-                  onChange={(e) => updateStatus(b.id, e.target.value as BookingStatus)}
+                  onChange={(e) =>
+                    updateStatus(b.id, e.target.value as BookingStatus)
+                  }
                   className="rounded-lg border border-gold-300 px-2 py-1.5 text-sm"
                 >
                   {STATUS_OPTIONS.map((s) => (
