@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { site } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/next";
+
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const sans = Inter({

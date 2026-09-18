@@ -28,9 +28,9 @@ type BookingSummary = {
 };
 
 /**
- * Sends the customer confirmation + Paula's internal "nieuwe aanvraag"
- * notification (hoofdstuk 4, stap 5). Silently no-ops when RESEND_API_KEY
- * isn't configured yet, so local development doesn't require it.
+ * Sends the customer confirmation + internal "nieuwe aanvraag" notification
+ * to one or more beheerders (hoofdstuk 4, stap 5). Silently no-ops when
+ * RESEND_API_KEY isn't configured yet, so local development doesn't require it.
  */
 export async function sendBookingEmails(booking: BookingSummary) {
   const resend = resendClient();
@@ -43,7 +43,14 @@ export async function sendBookingEmails(booking: BookingSummary) {
 
   const from =
     process.env.EMAIL_FROM ?? `${site.name} <boekingen@${site.domain}>`;
-  const adminTo = process.env.EMAIL_ADMIN_TO ?? site.email;
+
+  // Ondersteunt één of meerdere beheerder-adressen, gescheiden door een komma
+  // in EMAIL_ADMIN_TO (bijv. "paula@tandenblekenhoorn.nl,collega@tandenblekenhoorn.nl").
+  const adminTo = (process.env.EMAIL_ADMIN_TO ?? site.email)
+    .split(",")
+    .map((address) => address.trim())
+    .filter(Boolean);
+
   const treatment = TREATMENTS[booking.treatmentType];
   const when = formatDateTime(booking.startsAt);
 
