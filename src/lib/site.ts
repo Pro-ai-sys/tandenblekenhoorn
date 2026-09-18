@@ -4,7 +4,7 @@ export const site = {
   domain: "tandenblekenhoorn.nl",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://tandenblekenhoorn.nl",
   owner: "Paula",
-  email: "paula@tandenblekenhoorn.nl",
+  email: "paula.de.rooij@gmail.com",
   phone: "0615060684",
   phoneDisplay: "06-15060684",
   address: {
