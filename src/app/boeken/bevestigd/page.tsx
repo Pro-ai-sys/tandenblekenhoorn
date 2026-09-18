@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-function BevestigdContent({
+async function BevestigdContent({
   searchParams,
 }: {
-  searchParams: { when?: string; type?: string };
+  searchParams: Promise<{ when?: string; type?: string }>;
 }) {
-  const { when, type } = searchParams;
+  const { when, type } = await searchParams;
 
   const treatmentLabel =
     type && isTreatmentType(type) ? TREATMENTS[type].label : null;
@@ -90,7 +90,7 @@ function BevestigdContent({
 export default function BevestigdPage({
   searchParams,
 }: {
-  searchParams: { when?: string; type?: string };
+  searchParams: Promise<{ when?: string; type?: string }>;
 }) {
   return (
     <Suspense fallback={null}>
