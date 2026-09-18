@@ -119,6 +119,7 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
       setSubmitting(false);
     }
   }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-10">
       <div>
