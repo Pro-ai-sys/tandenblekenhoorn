@@ -51,7 +51,7 @@ export default async function WijkPage({
     <>
       <Hero
         eyebrow="Golden Smile — Tandenblekenhoorn.nl"
-        title={`Tanden bleken in ${wijk.naam}, zonder peroxide`}
+        title={`Tanden bleken in ${wijk.naam}`}
         subtitle={wijk.intro}
       />
       <UspList />

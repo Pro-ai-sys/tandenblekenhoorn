@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CustomerEditForm } from "@/components/admin/CustomerEditForm";
 import { BookingShadeHistory } from "@/components/admin/BookingShadeHistory";
 import { PhotoGallery } from "@/components/admin/PhotoGallery";
+import { QuickAddTreatment } from "@/components/admin/QuickAddTreatment";
 
 type Booking = {
   id: string;
@@ -54,7 +55,6 @@ export function CustomerDetailTabs({
 
   return (
     <div>
-      {/* Header */}
       <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="font-serif text-3xl text-ink-900">{customer.name}</h1>
@@ -73,7 +73,6 @@ export function CustomerDetailTabs({
         </div>
       </div>
 
-      {/* Tabs */}
       <div className="mb-6 flex gap-6 border-b border-gold-200/60">
         {TABS.map((tab) => (
           <button
@@ -101,7 +100,6 @@ export function CustomerDetailTabs({
         ))}
       </div>
 
-      {/* Panels */}
       {activeTab === "overzicht" && (
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-2xl border border-gold-200/60 bg-white p-5">
@@ -171,7 +169,12 @@ export function CustomerDetailTabs({
         </div>
       )}
 
-      {activeTab === "boekingen" && <BookingShadeHistory bookings={bookings} />}
+      {activeTab === "boekingen" && (
+        <div className="space-y-4">
+          <QuickAddTreatment customerId={customer.id} />
+          <BookingShadeHistory bookings={bookings} />
+        </div>
+      )}
 
       {activeTab === "fotos" && (
         <PhotoGallery customerId={customer.id} initialPhotos={photos} />

@@ -8,8 +8,8 @@ export default function HomePage() {
     <>
       <Hero
         eyebrow="Golden Smile — Centrum Hoorn"
-        title="Een stralende, witte glimlach zonder peroxide"
-        subtitle="Bij Golden Smile bleek je je tanden op een veilige manier, zonder peroxide-houdende gels. Centraal gelegen in het centrum van Hoorn, met gratis parkeren voor de deur. Kies je behandeling en boek direct online een tijdslot."
+        title="Jouw stralende, witte glimlach"
+        subtitle="Bij Golden Smile bleek je je tanden op een veilige, pijnvrije manier. Centraal gelegen in het centrum van Hoorn, met gratis parkeren voor de deur. Kies je behandeling en boek direct online een tijdslot."
       />
       <UspList />
       <TreatmentGrid />

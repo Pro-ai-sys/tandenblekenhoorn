@@ -44,12 +44,10 @@ export default async function KlantDetailPage({
     .order("created_at", { ascending: false });
 
   return (
-    <div className="max-w-3xl">
-      <CustomerDetailTabs
-        customer={customer}
-        bookings={bookings ?? []}
-        photos={photos ?? []}
-      />
-    </div>
+    <CustomerDetailTabs
+      customer={customer}
+      bookings={bookings ?? []}
+      photos={photos ?? []}
+    />
   );
 }
