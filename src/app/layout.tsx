@@ -5,9 +5,18 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { site } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/next";
 
-const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
-const serif = Playfair_Display({ subsets: ["latin"], variable: "--font-serif", display: "swap" });
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+const serif = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -19,7 +28,11 @@ export const metadata: Metadata = {
     "Tanden bleken zonder peroxide-houdende gels, in het centrum van Hoorn. Gratis parkeren en eenvoudig online een tijdslot boeken.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="nl" className={`${sans.variable} ${serif.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
@@ -27,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
