@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { TREATMENTS, type TreatmentType, isTreatmentType } from "@/lib/booking";
 
 type Slot = { time: string; startsAt: string };
@@ -19,6 +20,7 @@ function addDays(dateStr: string, days: number): string {
 }
 
 export function BookingWizard({ initialType }: { initialType?: string }) {
+  const router = useRouter();
   const [treatmentType, setTreatmentType] = useState<TreatmentType>(
     initialType && isTreatmentType(initialType) ? initialType : "single"
   );
@@ -34,7 +36,6 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [confirmedAt, setConfirmedAt] = useState<string | null>(null);
 
   const minDate = useMemo(() => addDays(todayDateStr(), 0), []);
   const maxDate = useMemo(() => addDays(todayDateStr(), 60), []);
@@ -106,7 +107,10 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
         }
         return;
       }
-      setConfirmedAt(selectedSlot.startsAt);
+      router.push(
+        `/boeken/bevestigd?when=${encodeURIComponent(selectedSlot.startsAt)}&type=${treatmentType}`
+      );
+      return;
     } catch {
       setError(
         "Boeken is niet gelukt. Controleer je internetverbinding en probeer het opnieuw."
@@ -115,37 +119,6 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
       setSubmitting(false);
     }
   }
-
-  if (confirmedAt) {
-    const when = new Intl.DateTimeFormat("nl-NL", {
-      timeZone: "Europe/Amsterdam",
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      hour: "2-digit",
-      minute: "2-digit",
-    }).format(new Date(confirmedAt));
-
-    return (
-      <div className="rounded-2xl border border-gold-200 bg-white p-8 text-center">
-        <h2 className="font-serif text-2xl text-ink-900">
-          Aanvraag ontvangen!
-        </h2>
-        <p className="mt-3 text-ink-700">
-          Je tijdslot op <strong>{when}</strong> staat gereserveerd. Je ontvangt
-          een bevestigingsmail, en Paula neemt via WhatsApp contact op om de
-          aanbetaling van €20,- via Tikkie te regelen. Zodra deze betaald is, is
-          je afspraak definitief.
-        </p>
-        <p className="mt-3 text-ink-700">
-          Geef ook je kenteken door via WhatsApp — dan zetten we deze vast in de
-          parkeer-app, zodat je gratis en zonder gedoe kunt parkeren tijdens je
-          behandeling.
-        </p>
-      </div>
-    );
-  }
-
   return (
     <form onSubmit={handleSubmit} className="space-y-10">
       <div>
