@@ -118,7 +118,7 @@ export const wijken: Wijk[] = [
     slug: "tanden-bleken-enkhuizen",
     naam: "Enkhuizen",
     intro:
-      "Enkhuizen ligt op zo'n twintig minuten rijden van Hoorn. Golden Smile in het centrum is voor Enkhuizers een geliefd adres voor een gratis, vrijblijvend advies over tanden bleken.",
+      "Enkhuizen ligt op zo'n twintig minuten rijden van Hoorn. Golden Smile in het centrum van Hoorn is voor Enkhuizers een geliefd adres voor een gratis, vrijblijvend advies over tanden bleken.",
   },
   {
     slug: "tanden-bleken-medemblik",
