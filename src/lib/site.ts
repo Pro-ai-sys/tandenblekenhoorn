@@ -34,10 +34,11 @@ export const site = {
   usps: [
     "Direct resultaat na één behandeling",
     "100% veilig, ook voor gevoelige tanden",
-    "Peroxidevrije behandeling, zonder peroxide-houdende gels",
+    "Veilige, pijnvrije behandeling",
     "Persoonlijke aandacht en kleurbepaling vooraf",
     "Gratis parkeren — geef je kenteken door via WhatsApp",
     "Airconditioning aanwezig",
+    "Ook geopend in de avonduren en op donderdag",
   ],
 } as const;
 
@@ -88,19 +89,19 @@ export const wijken: Wijk[] = [
     slug: "tanden-bleken-wognum",
     naam: "Wognum",
     intro:
-      "Wognum ligt op een klein stukje rijden van Hoorn. Bij Golden Smile in het centrum kun je eenvoudig online een tijdslot boeken, met gratis parkeren voor de deur.",
+      "Vanuit Wognum is Golden Smile in het centrum van Hoorn goed en snel bereikbaar. Boek online, ook in de avonduren of op donderdag, met gratis parkeren voor de deur.",
   },
   {
     slug: "tanden-bleken-berkhout",
     naam: "Berkhout",
     intro:
-      "Kom je uit Berkhout? Dan is Golden Smile in het centrum van Hoorn een fijn, dichtbij gelegen adres voor een witte, stralende glimlach.",
+      "Woon je in Berkhout? Golden Smile in het centrum van Hoorn helpt je graag aan een witte, stralende glimlach — veilig en zonder pijn.",
   },
   {
     slug: "tanden-bleken-venhuizen",
     naam: "Venhuizen",
     intro:
-      "Vanuit Venhuizen rijd je zo naar Golden Smile in het centrum van Hoorn. Gratis parkeren voor de deur maakt het bezoek extra eenvoudig.",
+      "Vanuit Venhuizen ben je met de auto zo bij Golden Smile in het centrum van Hoorn, voor een veilige bleekbehandeling met gratis parkeren voor de deur.",
   },
   {
     slug: "tanden-bleken-west-friesland",

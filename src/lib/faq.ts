@@ -160,4 +160,24 @@ export const faqItems: { question: string; answer: string }[] = [
     answer:
       "Zeker. Klanten komen onder andere uit Kersenboogerd, Grote Waal, Risdam, Blokker, Zwaag, Wognum, Berkhout en Venhuizen.",
   },
+  {
+    question: "Op welke dagen en tijden kan ik online een afspraak boeken?",
+    answer:
+      "Online boeken kan op donderdag de hele dag, en op maandag tot en met donderdag in de avonduren. Voor overige tijden overdag kun je telefonisch of via WhatsApp contact opnemen.",
+  },
+  {
+    question: "Kan ik mijn tanden laten bleken tijdens de zwangerschap?",
+    answer:
+      "We raden aan om tijdens zwangerschap of borstvoeding voorlopig te wachten met tanden bleken, en dit eerst te bespreken met je verloskundige of huisarts. Neem gerust contact op als je vragen hebt over jouw specifieke situatie.",
+  },
+  {
+    question: "Kan ik mijn tanden laten bleken met een beugel?",
+    answer:
+      "Bij een vaste beugel is bleken lastig, omdat de brackets de bleekgel deels blokkeren. Neem contact op om te bespreken wat in jouw situatie mogelijk is.",
+  },
+  {
+    question: "Is Golden Smile ook een mondhygiënist of tandartsenpraktijk?",
+    answer:
+      "Nee, Golden Smile is gespecialiseerd in cosmetisch tanden bleken. Voor mondhygiëne of tandheelkundige zorg kun je terecht bij een tandarts of mondhygiënist.",
+  },
 ];
