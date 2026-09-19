@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/lib/site";
 
 const NAV = [
@@ -12,8 +13,18 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-gold-200/60 bg-cream-50/90 backdrop-blur">
       <div className="container-page flex h-20 items-center justify-between">
-        <Link href="/" className="font-serif text-2xl tracking-wide text-ink-900">
-          {site.name}
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/images/mooi-gebit-glimlach-icoon.png"
+            alt="Golden Smile logo"
+            width={44}
+            height={58}
+            className="h-11 w-auto"
+            priority
+          />
+          <span className="font-serif text-2xl tracking-wide text-ink-900">
+            {site.name}
+          </span>
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => (
