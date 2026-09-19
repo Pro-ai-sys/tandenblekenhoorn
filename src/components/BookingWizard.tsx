@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { track } from "@vercel/analytics";
 import { TREATMENTS, type TreatmentType, isTreatmentType } from "@/lib/booking";
 
 type Slot = { time: string; startsAt: string };
@@ -107,6 +108,7 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
         }
         return;
       }
+      track("booking_completed", { treatment: treatmentType });
       router.push(
         `/boeken/bevestigd?when=${encodeURIComponent(selectedSlot.startsAt)}&type=${treatmentType}`
       );
@@ -131,7 +133,10 @@ export function BookingWizard({ initialType }: { initialType?: string }) {
             <button
               type="button"
               key={key}
-              onClick={() => setTreatmentType(key as TreatmentType)}
+              onClick={() => {
+                setTreatmentType(key as TreatmentType);
+                track("treatment_selected", { treatment: key });
+              }}
               className={`rounded-xl border p-4 text-left transition ${
                 treatmentType === key
                   ? "border-gold-600 bg-gold-50 ring-1 ring-gold-600"
