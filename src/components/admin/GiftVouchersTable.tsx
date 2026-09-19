@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { GiftVoucherEditRow } from "@/components/admin/GiftVoucherEditRow";
 
 export type GiftVoucherRow = {
   id: string;
@@ -109,6 +110,7 @@ export function GiftVouchersTable({ vouchers }: { vouchers: GiftVoucherRow[] }) 
                   >
                     Bekijk PDF
                   </a>
+                  <GiftVoucherEditRow voucher={v} />
                   {v.status !== "verzonden" && (
                     <button
                       type="button"
