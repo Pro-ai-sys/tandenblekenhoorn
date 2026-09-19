@@ -23,6 +23,9 @@ export default function AdminLayout({
             <Link href="/admin/klanten" className="hover:text-gold-600">
               Klanten
             </Link>
+            <Link href="/admin/cadeaubonnen" className="hover:text-gold-600">
+              Cadeaubonnen
+            </Link>
           </nav>
           <SignOutButton />
         </div>

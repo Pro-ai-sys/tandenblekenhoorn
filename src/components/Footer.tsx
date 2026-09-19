@@ -26,9 +26,16 @@ export function Footer() {
           <p className="font-semibold text-ink-900">Meer</p>
           <ul className="mt-2 space-y-1">
             <li>
-              <Link href="/faq" className="hover:text-gold-600">
-                Veelgestelde vragen
-              </Link>
+              <li>
+                <Link href="/faq" className="hover:text-gold-600">
+                  Veelgestelde vragen
+                </Link>
+              </li>
+              <li>
+                <Link href="/cadeaubon" className="hover:text-gold-600">
+                  Cadeaubon
+                </Link>
+              </li>
             </li>
             <li>
               <Link href="/privacy" className="hover:text-gold-600">
