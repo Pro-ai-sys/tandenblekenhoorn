@@ -17,12 +17,7 @@ export type GiftVoucherRow = {
   created_at: string;
 };
 
-const STATUS_OPTIONS = [
-  "nieuw",
-  "betaald",
-  "verzonden",
-  "geannuleerd",
-] as const;
+const STATUS_OPTIONS = ["nieuw", "betaald", "verzonden", "geannuleerd"] as const;
 const STATUS_LABELS: Record<string, string> = {
   nieuw: "Nieuw",
   betaald: "Betaald",
@@ -30,11 +25,7 @@ const STATUS_LABELS: Record<string, string> = {
   geannuleerd: "Geannuleerd",
 };
 
-export function GiftVouchersTable({
-  vouchers,
-}: {
-  vouchers: GiftVoucherRow[];
-}) {
+export function GiftVouchersTable({ vouchers }: { vouchers: GiftVoucherRow[] }) {
   const router = useRouter();
   const [busyId, setBusyId] = useState<string | null>(null);
 
@@ -52,9 +43,7 @@ export function GiftVouchersTable({
   async function sendVoucher(id: string) {
     if (!confirm("Digitale cadeaubon versturen naar de koper?")) return;
     setBusyId(id);
-    const res = await fetch(`/api/admin/gift-vouchers/${id}/send`, {
-      method: "POST",
-    });
+    const res = await fetch(`/api/admin/gift-vouchers/${id}/send`, { method: "POST" });
     setBusyId(null);
     if (!res.ok) {
       alert("Versturen is niet gelukt.");
@@ -64,9 +53,7 @@ export function GiftVouchersTable({
   }
 
   if (vouchers.length === 0) {
-    return (
-      <p className="text-sm text-ink-500">Nog geen cadeaubon-aanvragen.</p>
-    );
+    return <p className="text-sm text-ink-500">Nog geen cadeaubon-aanvragen.</p>;
   }
 
   return (
@@ -86,10 +73,9 @@ export function GiftVouchersTable({
           {vouchers.map((v) => (
             <tr key={v.id} className="border-b border-gold-100 last:border-0">
               <td className="px-4 py-3">
-                {new Intl.DateTimeFormat("nl-NL", {
-                  day: "numeric",
-                  month: "short",
-                }).format(new Date(v.created_at))}
+                {new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "short" }).format(
+                  new Date(v.created_at)
+                )}
               </td>
               <td className="px-4 py-3">
                 <p className="font-medium text-ink-900">{v.buyer_name}</p>
@@ -114,16 +100,26 @@ export function GiftVouchersTable({
                 </select>
               </td>
               <td className="px-4 py-3">
-                {v.status !== "verzonden" && (
-                  <button
-                    type="button"
-                    disabled={busyId === v.id}
-                    onClick={() => sendVoucher(v.id)}
-                    className="rounded-full bg-gold-600 px-4 py-1.5 text-xs font-semibold text-white hover:bg-gold-700 disabled:opacity-50"
+                <div className="flex items-center gap-2">
+                  <a
+                    href={`/api/admin/gift-vouchers/${v.id}/preview`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-gold-300 px-4 py-1.5 text-xs font-semibold text-ink-700 hover:bg-gold-50"
                   >
-                    Verstuur cadeaubon
-                  </button>
-                )}
+                    Bekijk PDF
+                  </a>
+                  {v.status !== "verzonden" && (
+                    <button
+                      type="button"
+                      disabled={busyId === v.id}
+                      onClick={() => sendVoucher(v.id)}
+                      className="rounded-full bg-gold-600 px-4 py-1.5 text-xs font-semibold text-white hover:bg-gold-700 disabled:opacity-50"
+                    >
+                      Verstuur cadeaubon
+                    </button>
+                  )}
+                </div>
               </td>
             </tr>
           ))}
